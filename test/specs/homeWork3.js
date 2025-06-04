@@ -53,7 +53,7 @@ describe("Github main page", () => {
     });
     
 
-    it('should display "Start your 45-day free trial of Enterprise Server', async () => {
+    it('Should check is the free trial for Enterprise is available', async () => {
         await browser.url('https://github.com');
         const pricing = await $('a[href="https://github.com/pricing"]')
         await browser.pause(2000)
