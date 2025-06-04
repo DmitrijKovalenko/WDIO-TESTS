@@ -1,6 +1,6 @@
 import { browser, expect } from "@wdio/globals";
 describe("Github main page", () => {
-    xit("should navigate to search page,type iphone and check title", async () => {
+    it("should navigate to search page,type iphone and check title", async () => {
         await browser.url('https://github.com/');
         const searchSpan = await $('/html/body/div[1]/div[3]/header/div/div[2]/div/div/qbsearch-input');
         await searchSpan.click() 
@@ -15,7 +15,7 @@ describe("Github main page", () => {
     
     
     });
-    xit("should not login with wrong password", async () => {
+    it("should not login with wrong password", async () => {
         await browser.url('https://github.com/');
         const loginButton = await $('.d-flex.d-lg-none > a[href="/login"]')
         loginButton.click()
@@ -25,11 +25,17 @@ describe("Github main page", () => {
         const password = await $('#password')
         password.addValue("123")
 
+        const signInButton = await $('.btn.btn-primary.btn-block.js-sign-in-button')
+        signInButton.click()
+
+        const alert = await $('.js-flash-alert')
+        expect(alert).toHaveText('Incorrect username or password.')
+
 
     
     });
 
-    xit("should check empty form for registration", async () => {
+    it("should check empty form for registration", async () => {
         await browser.url('https://github.com/');
         let signUpForGitHub = await $('//button[contains(@class, "js-hero-action")]')
         await signUpForGitHub.click()
@@ -38,7 +44,7 @@ describe("Github main page", () => {
         console.log("nameOfForm is :" + nameOfForm)
 
     });
-    xit('should display the GitHub logo', async () => {
+    it('should display the GitHub logo', async () => {
         await browser.url('https://github.com');
         const logo = await $('a[aria-label="Homepage"]');   
         await logo.scrollIntoView();
@@ -47,7 +53,7 @@ describe("Github main page", () => {
     });
     
 
-    xit('should display "Start your 45-day free trial of Enterprise Server', async () => {
+    it('should display "Start your 45-day free trial of Enterprise Server', async () => {
         await browser.url('https://github.com');
         const pricing = await $('a[href="https://github.com/pricing"]')
         await browser.pause(2000)
