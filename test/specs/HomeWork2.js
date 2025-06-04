@@ -1,14 +1,14 @@
 import { browser } from "@wdio/globals";
 
 describe("Webdriverio main page", () => {
-xit("should navigate to API page", async () => {
+it("should navigate to API page", async () => {
     await browser.url('https://webdriver.io/');
     const apiLink = await $('nav a[href="/docs/api"]');
     await apiLink.click();
 
 
 });
-xit("should scrolldown to API page and check isDisplayed blogButton", async () => {
+it("should scrolldown to API page and check isDisplayed blogButton", async () => {
     await browser.url('https://webdriver.io/docs/api');
     const blogButton = await $('.footer__link-item[href="/blog"]')
     await browser.pause(2000)
@@ -18,7 +18,7 @@ xit("should scrolldown to API page and check isDisplayed blogButton", async () =
     console.log("blogButton isDisplayed :" + isDisplayed)
 
 });
-xit("should check element if it is isDisplayed", async () => {
+it("should check element if it is isDisplayed", async () => {
     await browser.url('https://webdriver.io/docs/api/');
 
 
