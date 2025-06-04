@@ -3,7 +3,7 @@ import JobPage from '../pages/job.page.js'
 
 
 describe("Dou.ua main page", () => {
-    xit('done', async () => {
+    it('done', async () => {
         await browser.url('https://dou.ua')
         
         await MainPage.clickOnSalaries()
