@@ -4,7 +4,7 @@ import GithubRegistration from './../pages/githubregistration.page.js'
 import GithubNewstler from './../pages/githubnewstler.page.js'
 import GithubPricing from '../pages/githubpricing.page.js'
 describe("Github main page", () => {
-    xit('Testing sign up form', async () => {
+    it('Testing sign up form', async () => {
         await browser.url('https://github.com/')
         
         await GithubMainPage.clickSignUpBtn()
@@ -30,7 +30,7 @@ describe("Github main page", () => {
         await expect(verify).toHaveText("Verify your account")
 
     });
-    xit('Should check enterprise button', async () => {
+    it('Should check enterprise button', async () => {
         await browser.url('https://github.com/')
         
         await GithubMainPage.pricingBtn.scrollIntoView()
@@ -52,7 +52,7 @@ describe("Github main page", () => {
 
 
     });
-    xit('Should check Subscribe button enable', async () => {
+    it('Should check Subscribe button enable', async () => {
         await browser.url('https://github.com/')
        await GithubMainPage.subscribe.scrollIntoView()
        await GithubMainPage.subscribe.isClickable()
@@ -94,7 +94,7 @@ describe("Github main page", () => {
     });
 
 
-    xit("should navigate to search page and search Act", async () => {
+    it("should navigate to search page and search Act", async () => {
             await browser.url('https://github.com/');
             GithubMainPage.clicklOnSearchBtn()
         
@@ -108,7 +108,7 @@ describe("Github main page", () => {
 
     });
 
-    xit("should go to pricing and check headers", async () => {
+    it("should go to pricing and check headers", async () => {
         await browser.url('https://github.com/');
         GithubMainPage.clicklOnPricingHeader()
         await browser.pause(2000)
